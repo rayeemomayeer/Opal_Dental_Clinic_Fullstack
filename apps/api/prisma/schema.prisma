@@ -1,0 +1,49 @@
+// Prisma schema for the Opal Dental API.
+// Run `pnpm db:migrate` after configuring DATABASE_URL.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// A treatment/service offered by the clinic (Implants, Whitening, etc.).
+model Service {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  summary     String
+  description String?
+  imageUrl    String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Appointment / consultation requests submitted from the website.
+model Appointment {
+  id          String            @id @default(cuid())
+  name        String
+  email       String
+  phone       String
+  serviceSlug String?
+  preferredAt DateTime?
+  message     String?
+  status      AppointmentStatus @default(PENDING)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([status])
+  @@index([email])
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
