@@ -78,24 +78,22 @@ export function WhyUsSection() {
     return () => ctx.revert();
   }, []);
 
-  // Lazy-load: set src only when near viewport
+  // Auto mute/unmute: observe the section (not the video) so GSAP visibility doesn't interfere
   useIsomorphicLayoutEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    const section = rootRef.current;
+    if (!video || !section) return;
 
     const obs = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          video.src = "/why_choose_us.webm";
-          video.load();
-          void video.play().catch(() => {});
-          obs.disconnect();
-        }
+        const visible = entries[0].isIntersecting;
+        video.muted = !visible;
+        setMuted(!visible);
       },
-      { rootMargin: "240px" },
+      { threshold: 0.4 },
     );
 
-    obs.observe(video);
+    obs.observe(section);
     return () => obs.disconnect();
   }, []);
 
@@ -157,6 +155,7 @@ export function WhyUsSection() {
               <div className="relative aspect-[16/10] w-full bg-[#021520]">
                 <video
                   ref={videoRef}
+                  src="/why_choose_us.webm"
                   autoPlay
                   muted
                   loop
