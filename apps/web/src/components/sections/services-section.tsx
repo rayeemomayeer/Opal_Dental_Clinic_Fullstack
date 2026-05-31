@@ -3,7 +3,7 @@
 import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { useIsomorphicLayoutEffect } from "@/lib/use-isomorphic-layout-effect";
 
 type Service = {
