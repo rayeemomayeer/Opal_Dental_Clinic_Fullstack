@@ -11,7 +11,7 @@ export default function HomePage() {
         id="treatment"
         className="bg-opal-gradient-service flex min-h-[60vh] items-center justify-center px-6 text-center"
       >
-        <p className="max-w-md text-sm uppercase tracking-[0.2em] text-white/40">
+        <p className="max-w-md text-base uppercase tracking-[0.2em] text-foreground/40">
           Next sections coming soon
         </p>
       </section>

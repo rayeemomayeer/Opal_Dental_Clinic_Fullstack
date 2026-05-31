@@ -4,28 +4,29 @@
 
 @layer base {
   :root {
-    /* Opal Brand Colors */
-    --background: 200 91% 8%;
-    --foreground: 210 40% 98%;
+    /* Opal Brand Colors — ONLY these:
+       Deep Navy #02192D · Blue Glow #0B4F7D · Orange #FF9410 · Warm White #F4F2EE */
+    --background: 208 91% 9%; /* #02192D */
+    --foreground: 40 21% 94%; /* #F4F2EE warm white */
 
-    --card: 200 75% 10%;
-    --card-foreground: 210 40% 98%;
+    --card: 207 60% 11%;
+    --card-foreground: 40 21% 94%;
 
-    --primary: 31 95% 51%;
-    --primary-foreground: 200 91% 8%;
+    --primary: 33 100% 53%; /* #FF9410 orange */
+    --primary-foreground: 208 91% 9%;
 
-    --secondary: 200 50% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 204 84% 27%; /* #0B4F7D blue glow */
+    --secondary-foreground: 40 21% 94%;
 
-    --muted: 200 35% 18%;
-    --muted-foreground: 210 20% 72%;
+    --muted: 204 45% 18%;
+    --muted-foreground: 40 14% 78%;
 
-    --accent: 31 95% 51%;
-    --accent-foreground: 200 91% 8%;
+    --accent: 33 100% 53%;
+    --accent-foreground: 208 91% 9%;
 
-    --border: 200 30% 22%;
-    --input: 200 30% 22%;
-    --ring: 31 95% 51%;
+    --border: 204 40% 24%;
+    --input: 204 40% 24%;
+    --ring: 33 100% 53%;
 
     --radius: 0.75rem;
   }
@@ -105,48 +106,86 @@
 @layer utilities {
   /* ==========================================================
      HERO BACKDROP
-     Inspired by reference image
+     Premium cinematic lighting inspired by reference
      ========================================================== */
 
   .hero-backdrop {
     background:
-      /* Floor glow */
+      /* Main orange spotlight under implant */
       radial-gradient(
-        ellipse 42% 16% at 50% 102%,
-        rgba(248, 134, 10, 0.85) 0%,
-        rgba(248, 134, 10, 0.45) 30%,
-        rgba(248, 134, 10, 0.15) 55%,
+        ellipse 55% 24% at 50% 102%,
+        rgba(255, 145, 0, 0.95) 0%,
+        rgba(255, 145, 0, 0.55) 22%,
+        rgba(255, 145, 0, 0.22) 45%,
+        rgba(255, 145, 0, 0.08) 65%,
         transparent 82%
       ),
 
-      /* Soft vignette */
+      /* Implant halo */
       radial-gradient(
-        ellipse 150% 120% at 50% 40%,
-        transparent 55%,
-        rgba(0, 0, 0, 0.30) 100%
+        circle at 50% 58%,
+        rgba(255, 145, 0, 0.18) 0%,
+        rgba(255, 145, 0, 0.08) 18%,
+        transparent 42%
       ),
 
-      /* Base color */
-      #021c29;
+      /* Blue atmospheric glow */
+      radial-gradient(
+        circle at 55% 35%,
+        rgba(11, 79, 125, 0.45) 0%,
+        rgba(11, 79, 125, 0.18) 30%,
+        transparent 65%
+      ),
+
+      /* Top right lighting */
+      radial-gradient(
+        circle at 85% 15%,
+        rgba(20, 90, 140, 0.25) 0%,
+        transparent 45%
+      ),
+
+      /* Left side balancing glow */
+      radial-gradient(
+        circle at 10% 60%,
+        rgba(4, 55, 95, 0.18) 0%,
+        transparent 45%
+      ),
+
+      /* Cinematic vignette */
+      radial-gradient(
+        ellipse 160% 130% at 50% 40%,
+        transparent 52%,
+        rgba(2, 25, 45, 0.45) 100%
+      ),
+
+      /* Base */
+      #02192d;
   }
 
   @media (max-width: 1023px) {
     .hero-backdrop {
       background:
         radial-gradient(
-          ellipse 70% 25% at 50% 102%,
-          rgba(248, 134, 10, 0.75) 0%,
-          rgba(248, 134, 10, 0.30) 40%,
-          transparent 80%
+          ellipse 90% 30% at 50% 102%,
+          rgba(255, 145, 0, 0.85) 0%,
+          rgba(255, 145, 0, 0.35) 35%,
+          rgba(255, 145, 0, 0.08) 65%,
+          transparent 85%
         ),
 
         radial-gradient(
-          ellipse 140% 120% at 50% 40%,
-          transparent 55%,
-          rgba(0, 0, 0, 0.25) 100%
+          circle at 50% 45%,
+          rgba(11, 79, 125, 0.25) 0%,
+          transparent 65%
         ),
 
-        #021c29;
+        radial-gradient(
+          ellipse 150% 120% at 50% 40%,
+          transparent 55%,
+          rgba(2, 25, 45, 0.4) 100%
+        ),
+
+        #02192d;
     }
   }
 
@@ -157,11 +196,18 @@
   .bg-opal-gradient {
     background:
       radial-gradient(
-        ellipse 55% 18% at 50% 105%,
-        rgba(248, 134, 10, 0.12),
+        ellipse 70% 25% at 50% 105%,
+        rgba(255, 145, 0, 0.12),
         transparent 75%
       ),
-      #021c29;
+
+      radial-gradient(
+        circle at 50% 30%,
+        rgba(11, 79, 125, 0.10),
+        transparent 65%
+      ),
+
+      #02192d;
   }
 
   /* ==========================================================
@@ -171,48 +217,135 @@
   .bg-opal-gradient-service {
     background:
       radial-gradient(
-        ellipse 50% 20% at 50% 102%,
-        rgba(248, 134, 10, 0.14),
+        ellipse 65% 25% at 50% 102%,
+        rgba(255, 145, 0, 0.12),
         transparent 75%
+      ),
+
+      radial-gradient(
+        circle at 50% 20%,
+        rgba(11, 79, 125, 0.12),
+        transparent 60%
       ),
 
       linear-gradient(
         180deg,
         #021c29 0%,
-        #032131 50%,
+        #032131 45%,
         #021c29 100%
       );
   }
 
   /* ==========================================================
      IMPLANT GLOW
-     Keep this extremely subtle
+     Much stronger and more premium
      ========================================================== */
 
   .implant-glow {
     background:
       radial-gradient(
-        ellipse 30% 15% at 50% 70%,
-        rgba(248, 134, 10, 0.20),
+        ellipse 55% 35% at 50% 65%,
+        rgba(255, 145, 0, 0.38) 0%,
+        rgba(255, 145, 0, 0.18) 35%,
+        rgba(255, 145, 0, 0.08) 55%,
         transparent 80%
       );
 
-    filter: blur(32px);
+    filter: blur(80px);
+    opacity: 1;
     pointer-events: none;
   }
 
   /* ==========================================================
-     LUXURY TEXT TREATMENT
+     HERO TITLE
+     Luxury editorial typography
      ========================================================== */
 
   .hero-title {
-    line-height: 0.9;
-    letter-spacing: -0.05em;
+    line-height: 0.88;
+    letter-spacing: -0.055em;
     text-wrap: balance;
+    font-weight: 500;
+
+    text-shadow:
+      0 0 1px rgba(244, 242, 238, 0.15),
+      0 10px 30px rgba(2, 25, 45, 0.35);
   }
 
+  /* ==========================================================
+     HERO SUBTITLE
+     ========================================================== */
+
   .hero-subtitle {
+    letter-spacing: 0.015em;
+    line-height: 1.65;
+    color: rgba(244, 242, 238, 0.82);
+    max-width: 38rem;
+  }
+
+  /* ==========================================================
+     PREMIUM NAVIGATION
+     ========================================================== */
+
+  .nav-link {
     letter-spacing: 0.02em;
-    line-height: 1.6;
+    color: rgba(244, 242, 238, 0.82);
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: rgba(244, 242, 238, 1);
+    transform: translateY(-1px);
+  }
+
+  /* ==========================================================
+     PREMIUM BUTTON
+     ========================================================== */
+
+  .opal-button {
+    background: linear-gradient(
+      180deg,
+      #ffab2e 0%,
+      #ff9800 100%
+    );
+
+    box-shadow:
+      0 12px 40px rgba(255,145,0,0.28),
+      inset 0 1px 1px rgba(244,242,238,0.35);
+
+    transition: all 0.3s ease;
+  }
+
+  .opal-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 18px 50px rgba(255,145,0,0.38),
+      inset 0 1px 1px rgba(244,242,238,0.35);
+  }
+
+  /* ==========================================================
+     ATMOSPHERIC DEPTH LAYER
+     Optional helper class
+     ========================================================== */
+
+  .hero-atmosphere {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        circle at 30% 50%,
+        rgba(11,79,125,0.10),
+        transparent 35%
+      ),
+
+      radial-gradient(
+        circle at 70% 40%,
+        rgba(255,145,0,0.05),
+        transparent 30%
+      );
+
+    filter: blur(80px);
   }
 }

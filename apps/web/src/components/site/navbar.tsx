@@ -37,19 +37,19 @@ export function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="flex items-center justify-between px-6 py-5 md:px-10 lg:px-14"
+      className="flex items-center justify-between px-6 py-6 md:px-10 lg:px-14"
       aria-label="Primary"
     >
       <a href="#" data-nav-item className="relative z-10">
         <Logo />
       </a>
 
-      <ul className="hidden items-center gap-8 lg:flex">
+      <ul className="hidden items-center gap-10 lg:flex">
         {NAV_LINKS.map((link) => (
           <li key={link.label} data-nav-item>
             <a
               href={link.href}
-              className="text-sm font-medium text-white/75 transition-colors hover:text-white"
+              className="text-[15px] font-medium text-foreground/75 transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
@@ -58,13 +58,13 @@ export function Navbar() {
       </ul>
 
       <div className="flex items-center gap-3" data-nav-item>
-        <Button className="hidden rounded-full px-5 font-semibold sm:inline-flex">
+        <Button className="hidden rounded-full px-6 py-5 text-[15px] font-semibold sm:inline-flex">
           Book Appointment
         </Button>
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 text-foreground lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -74,14 +74,14 @@ export function Navbar() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="absolute left-4 right-4 top-20 z-20 rounded-2xl border border-white/10 bg-opal-deep/95 p-4 backdrop-blur lg:hidden">
+        <div className="absolute left-4 right-4 top-20 z-20 rounded-2xl border border-foreground/10 bg-background/95 p-4 backdrop-blur lg:hidden">
           <ul className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/80 hover:bg-white/5 hover:text-white"
+                  className="block rounded-lg px-3 py-3 text-base font-medium text-foreground/80 hover:bg-foreground/5 hover:text-foreground"
                 >
                   {link.label}
                 </a>

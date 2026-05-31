@@ -22,7 +22,7 @@ export function SplashScreen() {
   return (
     <div
       aria-hidden
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a1f33] transition-opacity duration-550 ${
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#02192D] transition-opacity duration-550 ${
         hiding ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
@@ -33,19 +33,19 @@ export function SplashScreen() {
           style={{
             width: 340,
             height: 340,
-            background: "radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,148,16,0.18) 0%, transparent 70%)",
             animation: "opal-ring-pulse 1.4s ease-out 0.3s forwards",
             opacity: 0,
           }}
         />
 
-        {/* Ambient amber glow orb */}
+        {/* Ambient orange glow orb */}
         <div
           className="absolute rounded-full"
           style={{
             width: 260,
             height: 260,
-            background: "radial-gradient(circle, rgba(245,166,35,0.35) 0%, rgba(255,184,77,0.12) 50%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,148,16,0.35) 0%, rgba(255,148,16,0.12) 50%, transparent 70%)",
             animation: "opal-glow-expand 1.1s ease-out 0.1s forwards",
             opacity: 0,
           }}

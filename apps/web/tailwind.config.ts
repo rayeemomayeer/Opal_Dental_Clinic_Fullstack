@@ -36,13 +36,12 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Opal brand palette (from the provided mockups)
+        // Opal brand palette — the ONLY colors allowed across the site.
         opal: {
-          navy: "#0a1f33",
-          deep: "#0d2a45",
-          teal: "#10394f",
-          amber: "#f5a623",
-          glow: "#ffb84d",
+          navy: "#02192D",
+          blue: "#0B4F7D",
+          orange: "#FF9410",
+          white: "#F4F2EE",
         },
       },
       borderRadius: {

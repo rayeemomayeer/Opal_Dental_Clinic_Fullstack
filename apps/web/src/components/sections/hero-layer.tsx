@@ -3,8 +3,8 @@ import { Navbar } from "@/components/site/navbar";
 import { LocalClock } from "@/components/site/local-clock";
 
 const EXPERTS = [
-  { name: "Clara Collins", initials: "CC", from: "from-amber-200/80", to: "to-orange-400/70" },
-  { name: "Mason", initials: "M", from: "from-sky-200/70", to: "to-teal-500/60" },
+  { name: "Clara Collins", initials: "CC", from: "from-primary/40", to: "to-secondary/50" },
+  { name: "Mason", initials: "M", from: "from-secondary/50", to: "to-primary/25" },
 ] as const;
 
 const TITLE_LINES = ["Advanced", "Care for a Perfect", "Smile"] as const;
@@ -17,10 +17,10 @@ export function HeroLayer() {
 
       {/* ── Desktop layout ── */}
       <div className="relative hidden flex-1 lg:block">
-        <div className="container grid h-full grid-cols-12 content-center items-center gap-10">
+        <div className="container grid h-full grid-cols-12 content-center items-center gap-12">
           {/* Headline + intro */}
           <div className="z-10 col-span-7">
-            <h1 className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="font-display text-6xl font-semibold leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
               {TITLE_LINES.map((line) => (
                 <span key={line} className="block overflow-hidden">
                   <span data-hero-line className="block">
@@ -31,7 +31,7 @@ export function HeroLayer() {
             </h1>
             <p
               data-hero="sub"
-              className="mt-6 max-w-sm text-sm leading-relaxed text-white/65 sm:text-base"
+              className="mt-8 max-w-md text-base leading-relaxed text-foreground/70 sm:text-lg"
             >
               From routine checkups to complex restorations, a comprehensive approach to your dental
               health.
@@ -43,28 +43,28 @@ export function HeroLayer() {
 
           {/* Experts */}
           <div className="z-10 col-span-3 flex justify-end">
-            <div data-hero="experts" className="w-full max-w-[280px]">
-              <div className="mb-3 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-[0.2em] text-white/55">
+            <div data-hero="experts" className="w-full max-w-[300px]">
+              <div className="mb-4 flex items-center justify-between">
+                <span className="text-sm uppercase tracking-[0.2em] text-foreground/60">
                   Our Experts
                 </span>
-                <span className="flex items-center gap-1 text-xs text-white/45">
-                  Next 9 <ArrowUpRight className="h-3.5 w-3.5" />
+                <span className="flex items-center gap-1 text-sm text-foreground/50">
+                  Next 9 <ArrowUpRight className="h-4 w-4" />
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 {EXPERTS.map((expert) => (
                   <figure
                     key={expert.name}
-                    className="group relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10"
+                    className="group relative aspect-[3/4] overflow-hidden rounded-2xl border border-foreground/10"
                   >
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${expert.from} ${expert.to}`}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center text-3xl font-semibold text-white/85">
+                    <div className="absolute inset-0 flex items-center justify-center text-4xl font-semibold text-foreground/90">
                       {expert.initials}
                     </div>
-                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-xs font-medium text-white">
+                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/80 to-transparent p-3 text-sm font-medium text-foreground">
                       {expert.name}
                     </figcaption>
                   </figure>
@@ -79,27 +79,27 @@ export function HeroLayer() {
       <div className="relative flex-1 lg:hidden" />
       <div className="lg:hidden">
         {/* gradient scrim for text legibility */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
 
-        <div className="relative z-10 px-5 pb-8">
-          <h1 className="font-display text-[2.75rem] font-semibold leading-[1.0]">
+        <div className="relative z-10 px-6 pb-10">
+          <h1 className="font-display text-[3.25rem] font-semibold leading-[1.0]">
             <span className="block overflow-hidden">
-              <span data-hero-line className="block text-white">
+              <span data-hero-line className="block text-foreground">
                 Advanced
               </span>
             </span>
             <span className="block overflow-hidden">
-              <span data-hero-line className="block text-white">
+              <span data-hero-line className="block text-foreground">
                 Care for a
               </span>
             </span>
             <span className="block overflow-hidden">
-              <span data-hero-line className="block text-[hsl(38,91%,55%)]">
+              <span data-hero-line className="block text-primary">
                 Perfect
               </span>
             </span>
             <span className="block overflow-hidden">
-              <span data-hero-line className="block text-white">
+              <span data-hero-line className="block text-foreground">
                 Smile
               </span>
             </span>
@@ -107,7 +107,7 @@ export function HeroLayer() {
 
           <button
             data-hero="sub"
-            className="mt-6 rounded-full bg-white px-7 py-2.5 text-sm font-medium text-[#5c1a06] shadow-lg"
+            className="mt-8 rounded-full bg-foreground px-8 py-3 text-base font-medium text-background shadow-lg"
           >
             Book Appointment
           </button>
@@ -115,7 +115,7 @@ export function HeroLayer() {
       </div>
 
       {/* ── Desktop bottom info strip ── */}
-      <div className="container hidden items-end justify-between pb-6 text-[10px] uppercase tracking-[0.18em] text-white/45 sm:text-[11px] lg:flex">
+      <div className="container hidden items-end justify-between pb-7 text-[11px] uppercase tracking-[0.18em] text-foreground/50 sm:text-xs lg:flex">
         <span data-hero="meta" className="leading-snug">
           Best Dentistry
           <br />
