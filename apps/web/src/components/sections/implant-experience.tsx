@@ -160,12 +160,13 @@ export function ImplantExperience() {
     const ctx = gsap.context(() => {
       // --- Entrance (on load) ---
       if (!reduce) {
-        const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+        // Delay until splash screen finishes (splash removes at 2150ms, fade starts at 1600ms)
+        const intro = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 2.2 });
         intro
-          .from("[data-hero-line]", { yPercent: 110, duration: 0.9, stagger: 0.12 }, 0.1)
-          .from("[data-hero='sub']", { y: 20, autoAlpha: 0, duration: 0.7 }, 0.5)
-          .from("[data-hero='experts']", { y: 24, autoAlpha: 0, duration: 0.7 }, 0.6)
-          .from("[data-hero='meta']", { y: 14, autoAlpha: 0, duration: 0.6, stagger: 0.1 }, 0.7);
+          .from("[data-hero-line]", { yPercent: 110, duration: 0.9, stagger: 0.12 }, 0)
+          .from("[data-hero='sub']", { y: 20, autoAlpha: 0, duration: 0.7 }, 0.4)
+          .from("[data-hero='experts']", { y: 24, autoAlpha: 0, duration: 0.7 }, 0.5)
+          .from("[data-hero='meta']", { y: 14, autoAlpha: 0, duration: 0.6, stagger: 0.1 }, 0.6);
       }
 
       // --- Reduced motion: show first frame + hero only, skip pinning ---
