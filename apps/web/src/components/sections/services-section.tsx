@@ -125,7 +125,7 @@ export function ServicesSection() {
     <section
       ref={rootRef}
       id="services"
-      className="bg-opal-gradient relative z-10 -mt-[38vh] rounded-t-[2.5rem] pb-24 pt-20 shadow-[0_-60px_120px_rgba(2,25,45,0.85)] ring-1 ring-inset ring-foreground/10 sm:-mt-[40vh] sm:rounded-t-[3rem] lg:pt-28"
+      className="bg-opal-gradient relative z-10 -mt-[38vh] overflow-x-hidden rounded-t-[2.5rem] pb-24 pt-20 shadow-[0_-60px_120px_rgba(2,25,45,0.85)] ring-1 ring-inset ring-foreground/10 sm:-mt-[40vh] sm:rounded-t-[3rem] lg:pt-28"
     >
       <div className="container">
         {/* Header */}

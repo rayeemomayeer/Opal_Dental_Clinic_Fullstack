@@ -40,11 +40,13 @@
   html {
     scroll-behavior: smooth;
     font-size: 105%;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     letter-spacing: 0.02em;
+    overflow-x: hidden;
   }
 }
 

@@ -217,7 +217,7 @@ export function ImplantExperience() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative">
+    <section ref={sectionRef} className="relative overflow-x-hidden">
       <div ref={pinRef} className="hero-backdrop relative h-screen w-full overflow-hidden">
         {/* Service backdrop — sits behind the implant so the planted implant stays visible */}
         <div

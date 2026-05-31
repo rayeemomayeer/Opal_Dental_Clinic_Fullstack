@@ -103,7 +103,7 @@ export function WhyUsSection() {
     <section
       ref={rootRef}
       id="why-us"
-      className="bg-opal-gradient relative z-10 pb-24 pt-20 lg:pt-28"
+      className="bg-opal-gradient relative z-10 overflow-x-hidden pb-24 pt-20 lg:pt-28"
     >
       {/* Top divider glow */}
       <div
