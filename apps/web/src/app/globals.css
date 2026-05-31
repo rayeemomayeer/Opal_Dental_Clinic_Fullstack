@@ -328,6 +328,19 @@
      Optional helper class
      ========================================================== */
 
+  /* Duotone: force any photo into the navy↔orange brand palette. */
+  .duotone-base {
+    filter: grayscale(1) contrast(1.08) brightness(0.92);
+  }
+  .duotone-shadow {
+    mix-blend-mode: multiply;
+    background: #02192d;
+  }
+  .duotone-light {
+    mix-blend-mode: lighten;
+    background: linear-gradient(135deg, #0b4f7d 0%, #ff9410 100%);
+  }
+
   .hero-atmosphere {
     position: absolute;
     inset: 0;
