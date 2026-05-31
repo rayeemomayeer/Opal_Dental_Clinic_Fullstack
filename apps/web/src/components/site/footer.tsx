@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, AtSign, Facebook } from "lucide-react";
 import { FloatingActions } from "./floating-actions";
@@ -16,21 +17,15 @@ const NAV_LINKS = [
 /** Footer brand logo */
 function FooterLogo() {
   return (
-    <div className="flex items-center justify-center gap-3">
-      <svg viewBox="0 0 32 32" className="h-12 w-12 shrink-0" fill="none" aria-hidden>
-        <path
-          d="M16 3c-3.4 0-5.2 1.8-7.7 1.8C5.6 4.8 3 6.8 3 11.2c0 3.6 1.2 6.4 2.3 10.1C6.4 25 7.2 29 9.3 29c2 0 2.3-3.4 3.3-6 .7-1.8 1.4-2.6 3.4-2.6s2.7.8 3.4 2.6c1 2.6 1.3 6 3.3 6 2.1 0 2.9-4 4-7.7C30.8 17.6 32 14.8 32 11.2 32 6.8 29.4 4.8 26.7 4.8 24.2 4.8 22.4 3 19 3h-3Z"
-          className="fill-foreground"
-        />
-        <path
-          d="M16 3c-3.4 0-5.2 1.8-7.7 1.8 2 .6 3.4 1.9 4.4 3.4.8 1.2 1.9 2 3.3 2s2.5-.8 3.3-2c1-1.5 2.4-2.8 4.4-3.4C24.2 4.8 22.4 3 19 3h-3Z"
-          className="fill-primary"
-        />
-      </svg>
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-4xl font-semibold tracking-tight text-foreground">Opal</span>
-        <span className="mt-1 text-xs uppercase tracking-[0.3em] text-foreground/60">Dental Clinic</span>
-      </span>
+    <div className="flex items-center justify-center">
+      <Image
+        src="/logo.svg"
+        alt="Opal Dental Clinic & Implant Centre"
+        width={160}
+        height={64}
+        className="h-28 w-auto"
+        unoptimized
+      />
     </div>
   );
 }
@@ -63,8 +58,8 @@ export function Footer() {
       <div className="container py-16 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10">
 
-          {/* Left — nav links */}
-          <nav aria-label="Footer">
+          {/* Left — nav links (hidden on mobile) */}
+          <nav aria-label="Footer" className="hidden lg:block">
             <ul className="flex flex-col gap-3">
               {NAV_LINKS.map(({ label, href }) => (
                 <li key={label}>
