@@ -39,7 +39,7 @@ export function HeroLayer() {
           </div>
 
           {/* Implant occupies the center column */}
-          <div className="col-span-2" aria-hidden />
+          <div className="col-span-1" aria-hidden />
 
           {/* Experts */}
           <div className="z-10 col-span-3 flex justify-end">
@@ -107,7 +107,7 @@ export function HeroLayer() {
 
           <button
             data-hero="sub"
-            className="mt-8 rounded-full bg-foreground px-8 py-3 text-base font-medium text-background shadow-lg"
+            className="mt-8 rounded-full px-8 py-3 text-base font-medium bg-[linear-gradient(180deg,#ffab2e,#f58b00)] shadow-[0_8px_30px_rgba(255,145,0,.25)]"
           >
             Book Appointment
           </button>
@@ -115,14 +115,14 @@ export function HeroLayer() {
       </div>
 
       {/* ── Desktop bottom info strip ── */}
-      <div className="container hidden items-end justify-between pb-7 text-[11px] uppercase tracking-[0.18em] text-foreground/50 sm:text-xs lg:flex">
+      <div className="container hidden items-center justify-center gap-20 pb-7 text-[11px] uppercase tracking-[0.18em] text-foreground/50 sm:text-xs lg:flex">
         <span data-hero="meta" className="leading-snug">
-          Best Dentistry
+        Best Dental Clinic
           <br />
-          2025
+          Chattogram
         </span>
         <span data-hero="meta" className="flex flex-col items-center gap-0.5 text-center">
-          <span>Barcelona, Spain</span>
+          <span>Dampara, Chattogram</span>
           <LocalClock />
         </span>
         <span data-hero="meta" className="text-right leading-snug">

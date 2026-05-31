@@ -88,7 +88,9 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <Button className="mt-3 w-full rounded-full font-semibold">Book Appointment</Button>
+          <Button className="mt-3 w-full rounded-full font-semibold bg-[linear-gradient(180deg,#ffab2e,#f58b00)] shadow-[0_8px_30px_rgba(255,145,0,.25)]">
+  Book Appointment
+</Button>
         </div>
       )}
     </nav>
