@@ -34,3 +34,5 @@ apps/api/prisma/*.db
 # misc
 *.tsbuildinfo
 coverage/
+
+.vercel
