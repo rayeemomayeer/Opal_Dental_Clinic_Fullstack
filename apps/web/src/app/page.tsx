@@ -1,5 +1,7 @@
 import { ImplantExperience } from "@/components/sections/implant-experience";
 import { ServicesSection } from "@/components/sections/services-section";
+import { WhyUsSection } from "@/components/sections/why-us-section";
+import { GallerySection } from "@/components/sections/gallery-section";
 
 export default function HomePage() {
   return (
@@ -9,6 +11,12 @@ export default function HomePage() {
 
       {/* Services list with hover-driven duotone imagery (overlaps the section above) */}
       <ServicesSection />
+
+      {/* Why Choose Us — video + 6-card feature grid */}
+      <WhyUsSection />
+
+      {/* Gallery — continuous horizontal scroll strip */}
+      <GallerySection />
     </main>
   );
 }
