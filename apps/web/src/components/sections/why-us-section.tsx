@@ -103,13 +103,8 @@ export function WhyUsSection() {
     <section
       ref={rootRef}
       id="why-us"
-      className="bg-opal-gradient relative z-10 overflow-x-hidden pb-24 pt-20 lg:pt-28"
+      className="relative z-10 overflow-x-hidden pb-24 pt-20 lg:pt-28"
     >
-      {/* Top divider glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent"
-      />
 
       <div className="container">
         {/* ── Row 1: title (1/3) + video (2/3) ── */}

@@ -95,13 +95,8 @@ export function GallerySection() {
     <section
       ref={rootRef}
       id="gallery"
-      className="bg-opal-gradient relative z-10 overflow-hidden pb-24 pt-20 lg:pt-28"
+      className="relative z-10 overflow-hidden pb-24 pt-20 lg:pt-28"
     >
-      {/* Top divider glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent"
-      />
 
       {/* Header */}
       <div className="container mb-12 lg:mb-16">
