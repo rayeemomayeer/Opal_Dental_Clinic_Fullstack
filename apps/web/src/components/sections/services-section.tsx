@@ -16,42 +16,42 @@ const SERVICES: readonly Service[] = [
   {
     name: "Restorative Dentistry",
     items: ["Composite Fillings", "Veneers", "Crowns", "CAD/CAM Prosthesis", "Zirconia Restorations"],
-    img: "/services/svc-1.webp",
+    img: "/services/svc-restorative.jpg",
   },
   {
     name: "Endodontics",
     items: ["Single-Visit Root Canal (RCT)", "Laser Root Canal", "Advanced Re-RCT"],
-    img: "/services/svc-2.webp",
+    img: "/services/svc-laser.jpg",
   },
   {
     name: "Dental Implants",
     items: ["All-on-4 Implants", "Full Mouth Rehabilitation", "Digitally Guided Implant Surgery"],
-    img: "/services/svc-3.webp",
+    img: "/services/svc-implants.jpg",
   },
   {
     name: "Orthodontics",
     items: ["Metal Braces", "Ceramic Braces", "Invisalign (Clear Aligners)"],
-    img: "/services/svc-4.webp",
+    img: "/services/svc-ortho.webp",
   },
   {
     name: "Cosmetic Dentistry",
     items: ["Smile Design", "Digital Smile Designing", "Smile Makeovers"],
-    img: "/services/svc-5.webp",
+    img: "/services/svc-cosmetic.jpg",
   },
   {
     name: "Oral & Maxillofacial Surgery",
     items: ["PRF Therapy", "Trauma Management", "Minor Oral Surgery", "Major Oral Surgery"],
-    img: "/services/svc-1.webp",
+    img: "/services/svc-surgery.jpg",
   },
   {
     name: "Laser Dentistry",
     items: ["Cosmetic Laser Treatments", "Clinical Laser Procedures", "Teeth Whitening", "Gummy Smile Correction"],
-    img: "/services/svc-2.webp",
+    img: "/services/svc-laser.jpg",
   },
   {
     name: "Specialized Treatments",
     items: ["TMJ Therapy", "CAD/CAM Splint Therapy"],
-    img: "/services/svc-3.webp",
+    img: "/services/svc-restorative.jpg",
   },
 ];
 
