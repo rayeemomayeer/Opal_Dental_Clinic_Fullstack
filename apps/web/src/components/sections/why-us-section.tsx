@@ -40,8 +40,9 @@ export function WhyUsSection() {
   function toggleMute() {
     const v = videoRef.current;
     if (!v) return;
-    v.muted = !v.muted;
-    setMuted(v.muted);
+    const next = !v.muted;
+    v.muted = next;
+    setMuted(next);
   }
 
   useIsomorphicLayoutEffect(() => {
@@ -78,22 +79,23 @@ export function WhyUsSection() {
     return () => ctx.revert();
   }, []);
 
-  // Auto mute/unmute: observe the section (not the video) so GSAP visibility doesn't interfere
+  // Auto-mute when video leaves viewport; never force-unmute (browser policy blocks it)
   useIsomorphicLayoutEffect(() => {
     const video = videoRef.current;
-    const section = rootRef.current;
-    if (!video || !section) return;
+    if (!video) return;
 
     const obs = new IntersectionObserver(
       (entries) => {
         const visible = entries[0].isIntersecting;
-        video.muted = !visible;
-        setMuted(!visible);
+        if (!visible) {
+          video.muted = true;
+          setMuted(true);
+        }
       },
-      { threshold: 0.4 },
+      { threshold: 0.3 },
     );
 
-    obs.observe(section);
+    obs.observe(video);
     return () => obs.disconnect();
   }, []);
 
@@ -157,7 +159,7 @@ export function WhyUsSection() {
                   ref={videoRef}
                   src="/why_choose_us.webm"
                   autoPlay
-                  muted
+                  muted={muted}
                   loop
                   playsInline
                   className="absolute inset-0 h-full w-full object-cover"
@@ -178,13 +180,19 @@ export function WhyUsSection() {
                   type="button"
                   onClick={toggleMute}
                   aria-label={muted ? "Unmute video" : "Mute video"}
-                  className="group absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full border border-foreground/20 bg-background/50 backdrop-blur-md transition-all duration-200 hover:border-primary/50 hover:bg-background/70 hover:shadow-[0_0_20px_rgba(255,145,0,0.2)]"
+                  className="group absolute bottom-4 right-4 flex items-center gap-2 rounded-full border border-foreground/20 bg-background/60 px-3 py-2 backdrop-blur-md transition-all duration-200 hover:border-primary/50 hover:bg-background/80 hover:shadow-[0_0_20px_rgba(255,145,0,0.2)]"
                 >
-                  {muted ? (
-                    <VolumeX className="h-4 w-4 text-foreground/70 transition-colors group-hover:text-primary" />
-                  ) : (
-                    <Volume2 className="h-4 w-4 text-primary" />
+                  {/* Pulse ring — visible only when muted */}
+                  {muted && (
+                    <span className="relative flex h-4 w-4 shrink-0">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/50" />
+                      <VolumeX className="relative h-4 w-4 text-foreground/80 transition-colors group-hover:text-primary" />
+                    </span>
                   )}
+                  {!muted && <Volume2 className="h-4 w-4 text-primary" />}
+                  <span className="text-xs font-medium text-foreground/70 transition-colors group-hover:text-foreground">
+                    {muted ? "Tap to unmute" : "Mute"}
+                  </span>
                 </button>
               </div>
             </div>
