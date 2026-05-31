@@ -58,7 +58,7 @@ export function Navbar() {
       </ul>
 
       <div className="flex items-center gap-3" data-nav-item>
-        <Button className="hidden rounded-full px-6 py-5 text-[15px] font-semibold sm:inline-flex">
+        <Button className="hidden rounded-full px-6 py-5 text-[15px] font-semibold sm:inline-flex bg-[linear-gradient(180deg,#ffab2e,#f58b00)] shadow-[0_8px_30px_rgba(255,145,0,.25)]">
           Book Appointment
         </Button>
         <button

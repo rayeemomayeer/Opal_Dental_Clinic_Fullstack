@@ -8,13 +8,13 @@ export function ServiceLayer() {
         <div className="max-w-lg">
           <h2
             data-svc="title"
-            className="font-display text-6xl font-semibold leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl"
+            className="font-display text-6xl font-semibold leading-[0.95] tracking-tight text-secondary sm:text-7xl lg:text-8xl"
           >
             Dental
             <br />
             Implants
           </h2>
-          <p data-svc="sub" className="mt-6 text-lg leading-relaxed text-foreground/70">
+          <p data-svc="sub" className="mt-6 text-lg lg:text-2xl leading-relaxed text-foreground">
             Digitally Guided Implant
             <br />
             All-on-4 Full Mouth Implant

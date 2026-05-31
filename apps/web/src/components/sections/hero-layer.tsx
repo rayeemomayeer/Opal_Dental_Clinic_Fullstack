@@ -20,7 +20,7 @@ export function HeroLayer() {
         <div className="container grid h-full grid-cols-12 content-center items-center gap-12">
           {/* Headline + intro */}
           <div className="z-10 col-span-7">
-            <h1 className="font-display text-6xl font-semibold leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
+            <h1 className="font-display text-4xl font-semibold leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-[90px]">
               {TITLE_LINES.map((line) => (
                 <span key={line} className="block overflow-hidden">
                   <span data-hero-line className="block">
@@ -31,7 +31,7 @@ export function HeroLayer() {
             </h1>
             <p
               data-hero="sub"
-              className="mt-8 max-w-md text-base leading-relaxed text-foreground/70 sm:text-lg"
+              className="mt-8 max-w-md text-base leading-relaxed text-foreground/70 sm:text-lg lg:text-2xl"
             >
               From routine checkups to complex restorations, a comprehensive approach to your dental
               health.
