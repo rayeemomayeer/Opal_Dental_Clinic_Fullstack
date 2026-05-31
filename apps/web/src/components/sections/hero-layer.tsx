@@ -1,10 +1,12 @@
+import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/site/navbar";
 import { LocalClock } from "@/components/site/local-clock";
 
 const EXPERTS = [
-  { name: "Clara Collins", initials: "CC", from: "from-primary/40", to: "to-secondary/50" },
-  { name: "Mason", initials: "M", from: "from-secondary/50", to: "to-primary/25" },
+  { name: "Dr. Raihan", role: "Implant Specialist", img: "/doctor1.webp", href: "/doctors/dr-raihan" },
+  { name: "Dr. Nadia",  role: "Cosmetic Dentist",   img: "/doctor2.jpg",  href: "/doctors/dr-nadia"  },
 ] as const;
 
 const TITLE_LINES = ["Advanced", "Care for a Perfect", "Smile"] as const;
@@ -52,22 +54,30 @@ export function HeroLayer() {
                   Next 9 <ArrowUpRight className="h-4 w-4" />
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="flex gap-6">
                 {EXPERTS.map((expert) => (
-                  <figure
-                    key={expert.name}
-                    className="group relative aspect-[3/4] overflow-hidden rounded-2xl border border-foreground/10"
-                  >
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${expert.from} ${expert.to}`}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center text-4xl font-semibold text-foreground/90">
-                      {expert.initials}
+                  <Link key={expert.name} href={expert.href} className="group flex flex-col items-center gap-3">
+                    {/* Circle photo — 1.5× = h-36 w-36 */}
+                    <div className="relative h-36 w-36 shrink-0 overflow-hidden rounded-full border-2 border-primary/40 shadow-[0_0_0_4px_rgba(255,148,16,0.12),0_16px_48px_rgba(2,25,45,0.65)] transition-all duration-300 group-hover:border-primary/80 group-hover:shadow-[0_0_0_6px_rgba(255,148,16,0.2),0_20px_60px_rgba(255,148,16,0.18)]">
+                      <Image
+                        src={expert.img}
+                        alt={expert.name}
+                        fill
+                        sizes="144px"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                      />
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
-                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/80 to-transparent p-3 text-sm font-medium text-foreground">
-                      {expert.name}
+                    {/* Name + role + arrow */}
+                    <figcaption className="text-center">
+                      <p className="flex items-center justify-center gap-1 text-sm font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+                        {expert.name}
+                        <ArrowUpRight className="h-3 w-3 opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </p>
+                      <p className="mt-0.5 text-[11px] tracking-wide text-foreground/50">{expert.role}</p>
                     </figcaption>
-                  </figure>
+                  </Link>
                 ))}
               </div>
             </div>
